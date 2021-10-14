@@ -15,7 +15,7 @@ int ShowHeroSelect(std::vector<std::string> &heroes);
 int ShowHeroSelect(std::vector<std::string> &heroes){
     std::cout << "Choose your hero: ";
     for(int i = 0; i < heroes.size(); i++){
-        std::cout << i << ": " << heroes[i] << std::endl;
+        std::cout << i+1 << ") " << heroes[i] << std::endl;
     }
     int choice;
     std::cin >> choice;
@@ -76,8 +76,9 @@ void ShowStartDialog(std::string &hero){
 int main(){
     std::vector<std::string> heroes;
     int selection;
-    while(selection != 2){
+    while(!std::cin.fail() && selection != 2){
     selection = ShowStartMenuSelect();
+    std::cout<< "You selected: " << selection << std::endl;
     switch(selection){
         case 1:
             CreateAndAddHero(heroes);
@@ -87,9 +88,11 @@ int main(){
             break;
         case 3:
             return 0;
+            break;
         default:
             std::cout << "Invalid selection" << std::endl;
             break;
     }}
+    return 0;
 }
 

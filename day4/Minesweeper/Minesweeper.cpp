@@ -150,6 +150,7 @@ void insertNumbers(char field[FIELD_SIZE_X][FIELD_SIZE_Y])
         }
     }
 }
+
 void printField(char field[FIELD_SIZE_X][FIELD_SIZE_Y])
 {
     #ifdef WITHEMOTE

@@ -32,7 +32,7 @@ void createMultipleAdressReport(std::vector<SacramentoRow_t> &rows);
 int main()
 {
     std::vector<SacramentoRow_t> rows;
-    loadCSV(".\\sss.csv", rows);
+    loadCSV("./sss.csv", rows);
     std::cout << "---------------------------------------------" << std::endl;
     std::cout << "Crimes Report, Sacramento 2006: " << std::endl;
     std::cout << "Commited crimes in 2006: " << rows.size() << std::endl;
@@ -41,7 +41,6 @@ int main()
     createMultipleAdressReport(rows);
     std::cout << "---------------------------------------------" << std::endl;
 
-    delete &rows;
 }
 
 void createMultipleAdressReport(std::vector<SacramentoRow_t> &rows)
@@ -123,7 +122,7 @@ void createMostFrequentCrimesReport(std::vector<SacramentoRow_t> &rows)
             crime = it->first;
         }
     }
-    std::cout << "The most frequent crime is: " << crime << " with " << max << " occurences" << std::endl;
+    std::cout << "The most frequent crime is: " << crime << " with " << max <<  " occurrences" << std::endl;
 }
 
 void loadCSV(std::string fileName, std::vector<SacramentoRow_t> &rows)
@@ -169,9 +168,7 @@ void loadCSV(std::string fileName, std::vector<SacramentoRow_t> &rows)
             }
             Srow->beat = v[3];
             Srow->grid = v[4];
-            Srow->crimedescr = v[5];
-            Srow->ucr_ncic_code = std::stoi(v[6]);
-            Srow->latitude = std::stod(v[7]);
+            Srow->crimedescr = v[5]; Srow->ucr_ncic_code = std::stoi(v[6]); Srow->latitude = std::stod(v[7]);
             Srow->longitude = std::stod(v[8]);
             rows.push_back(*Srow);
         }

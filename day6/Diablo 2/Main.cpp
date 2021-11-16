@@ -167,6 +167,8 @@ std::string d2c::getCharacterTitle()
 
 int main()
 {
+    printf("%ld", sizeof(long));
+
     char *buffer = new char[sizeof(d2c)];
     try
     {
